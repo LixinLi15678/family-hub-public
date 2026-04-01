@@ -625,8 +625,12 @@ npm run dev
 
 ## Star History
 
-<p align="center">
-  <a href="https://www.star-history.com/#LixinLi15678/family-hub-public&Date">
-    <img src="https://api.star-history.com/svg?repos=LixinLi15678/family-hub-public&type=Date" alt="Star History Chart">
-  </a>
-</p>
+## Star History
+
+<a href="https://www.star-history.com/?repos=LixinLi15678%2Ffamily-hub-public&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=LixinLi15678/family-hub-public&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=LixinLi15678/family-hub-public&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=LixinLi15678/family-hub-public&type=date&legend=top-left" />
+ </picture>
+</a>
