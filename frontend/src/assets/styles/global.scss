@@ -1,0 +1,478 @@
+// ========================================
+// Kawaii Family Hub - Global Styles
+// ========================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ----------------------------------------
+// 引入 Google Fonts
+// ----------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+
+// ----------------------------------------
+// CSS Variables for Theme
+// ----------------------------------------
+:root {
+  // Colors
+  --color-primary: #{$primary};
+  --color-primary-light: #{$primary-light};
+  --color-primary-lighter: #{$primary-lighter};
+  --color-primary-dark: #{$primary-dark};
+  
+  --color-cream: #{$cream};
+  --color-cream-light: #{$cream-light};
+  --color-mint: #{$mint};
+  --color-lavender: #{$lavender};
+  --color-coral: #{$coral};
+  
+  --color-text-primary: #{$text-primary};
+  --color-text-secondary: #{$text-secondary};
+  --color-text-light: #{$text-light};
+  
+  --color-success: #{$success};
+  --color-warning: #{$warning};
+  --color-error: #{$error};
+  --color-info: #{$info};
+  
+  --color-bg: #{$cream};
+  --color-card: #{$cream-light};
+  --color-border: #E0E0E0;
+  
+  // Shadows
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  
+  // Transitions
+  --transition-fast: #{$transition-fast};
+  --transition-normal: #{$transition-normal};
+  
+  // Font
+  --font-family: #{$font-cn-body};
+  --font-family-title: #{$font-cn-title};
+  --font-family-en: #{$font-en};
+}
+
+// Dark mode CSS variables
+.dark-mode {
+  --color-bg: #{$dark-bg};
+  --color-card: #{$dark-card};
+  --color-text-primary: #{$dark-text};
+  --color-text-secondary: #{$dark-text-secondary};
+  --color-text-light: #{$dark-text-disabled};
+  --color-border: #4D4D4D;
+  
+  --shadow-sm: #{$shadow-dark-sm};
+  --shadow-md: #{$shadow-dark-md};
+  --shadow-lg: #{$shadow-dark-lg};
+}
+
+// ----------------------------------------
+// Reset & Base Styles
+// ----------------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-cn-body;
+  font-size: $font-size-body;
+  line-height: $line-height-body;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+  @include custom-scrollbar;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+// ----------------------------------------
+// Typography
+// ----------------------------------------
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-cn-title;
+  font-weight: $font-weight-bold;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  line-height: $line-height-h1;
+}
+
+h2 {
+  font-size: $font-size-h2;
+  line-height: $line-height-h2;
+}
+
+h3 {
+  font-size: $font-size-h3;
+  line-height: $line-height-h3;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+  @include transition(color);
+  
+  &:hover {
+    color: $primary-dark;
+  }
+}
+
+// ----------------------------------------
+// Lists
+// ----------------------------------------
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// ----------------------------------------
+// Images
+// ----------------------------------------
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// ----------------------------------------
+// Buttons
+// ----------------------------------------
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+// ----------------------------------------
+// Form Elements
+// ----------------------------------------
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+// ----------------------------------------
+// Helper Classes
+// ----------------------------------------
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-light { color: var(--color-text-light); }
+.text-accent { color: $primary; }
+.text-success { color: $success; }
+.text-warning { color: $warning; }
+.text-error { color: $error; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-bold { font-weight: $font-weight-bold; }
+.font-medium { font-weight: $font-weight-medium; }
+.font-regular { font-weight: $font-weight-regular; }
+
+// Display classes
+.display-number {
+  font-family: $font-en;
+  font-size: $font-size-display;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-display;
+}
+
+// ----------------------------------------
+// Spacing Helpers
+// ----------------------------------------
+.mt-xs { margin-top: $spacing-xs; }
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+.mt-xl { margin-top: $spacing-xl; }
+.mt-2xl { margin-top: $spacing-2xl; }
+
+.mb-xs { margin-bottom: $spacing-xs; }
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+.mb-xl { margin-bottom: $spacing-xl; }
+.mb-2xl { margin-bottom: $spacing-2xl; }
+
+.p-sm { padding: $spacing-sm; }
+.p-md { padding: $spacing-md; }
+.p-lg { padding: $spacing-lg; }
+.p-xl { padding: $spacing-xl; }
+
+// ----------------------------------------
+// Layout Helpers
+// ----------------------------------------
+.flex { display: flex; }
+.flex-center { @include flex-center; }
+.flex-between { @include flex-between; }
+.flex-column { @include flex-column; }
+.flex-1 { flex: 1; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-xs { gap: $spacing-xs; }
+.gap-sm { gap: $spacing-sm; }
+.gap-md { gap: $spacing-md; }
+.gap-lg { gap: $spacing-lg; }
+.gap-xl { gap: $spacing-xl; }
+
+// ----------------------------------------
+// Visibility
+// ----------------------------------------
+.hidden { display: none !important; }
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
+
+// Mobile/Desktop visibility
+.mobile-only {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  display: none !important;
+  
+  @include desktop {
+    display: block !important;
+  }
+}
+
+// ----------------------------------------
+// Animation Classes
+// ----------------------------------------
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity $transition-normal $ease-smooth;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all $transition-normal $ease-smooth;
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all $transition-normal $ease-smooth;
+}
+
+.slide-right-enter-from {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+// Bounce animation
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 0.6s $ease-bounce;
+}
+
+// Pulse animation
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+// Spin animation
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+// Scale animation
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in $transition-normal $ease-bounce;
+}
+
+// Points fly animation
+@keyframes points-fly {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.5);
+  }
+}
+
+.animate-points-fly {
+  animation: points-fly 0.8s $ease-out forwards;
+}
+
+// Checkmark animation
+@keyframes checkmark {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-checkmark {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: checkmark 0.3s $ease-out forwards;
+}
+
+// ----------------------------------------
+// Page Transitions
+// ----------------------------------------
+.page-enter-active,
+.page-leave-active {
+  transition: all $transition-normal $ease-smooth;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+// ----------------------------------------
+// Toast / Notification Container
+// ----------------------------------------
+.toast-container {
+  position: fixed;
+  top: $spacing-xl;
+  right: $spacing-xl;
+  z-index: $z-index-toast;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  
+  @include tablet {
+    top: auto;
+    bottom: calc(#{$bottom-tab-height} + #{$spacing-lg});
+    left: $spacing-lg;
+    right: $spacing-lg;
+    align-items: center;
+  }
+}
+
+// ----------------------------------------
+// Modal Backdrop
+// ----------------------------------------
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: $z-index-modal-backdrop;
+  @include flex-center;
+}
+
+// ----------------------------------------
+// Safe Area (iOS)
+// ----------------------------------------
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+// ----------------------------------------
+// Scrollbar Hide
+// ----------------------------------------
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+

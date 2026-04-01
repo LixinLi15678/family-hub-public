@@ -1,0 +1,74 @@
+# Family Hub - production deployment configuration
+# Build the frontend first, then run `docker-compose -f docker-compose.prod.yml up -d`
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: family-hub-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      POSTGRES_DB: family_hub
+      TZ: ${TZ:-UTC}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - family-hub-net
+
+  backend:
+    build: ./backend
+    container_name: family-hub-backend
+    restart: always
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:${DB_PASSWORD}@db:5432/family_hub
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:?JWT_SECRET_KEY is required}
+      DEBUG: "false"
+      HOST: "0.0.0.0"
+      PORT: "8000"
+      UPLOAD_DIR: "/data/uploads"
+      CORS_ORIGINS: ${CORS_ORIGINS:-["http://localhost"]}
+      POINTS_EXPIRY_DAYS: "90"
+      TZ: ${TZ:-UTC}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - uploads_data:/data/uploads
+    command: uvicorn app.main:socket_app --host 0.0.0.0 --port 8000
+    networks:
+      - family-hub-net
+
+  frontend:
+    image: nginx:alpine
+    container_name: family-hub-frontend
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - backend
+    environment:
+      TZ: ${TZ:-UTC}
+    networks:
+      - family-hub-net
+
+volumes:
+  postgres_data:
+    driver: local
+  uploads_data:
+    driver: local
+
+networks:
+  family-hub-net:
+    driver: bridge

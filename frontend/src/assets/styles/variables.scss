@@ -1,0 +1,175 @@
+// ========================================
+// Kawaii Family Hub - Design System
+// 治愈系家庭管理应用设计系统
+// ========================================
+
+// ----------------------------------------
+// 主色调 - Light Mode
+// ----------------------------------------
+$primary: #FFB5BA;          // 蜜桃粉 - 主按钮、重点强调、Tab选中
+$primary-light: #FFD4D8;    // 浅蜜桃 - 按钮hover、轻量强调
+$primary-lighter: #FFF0F1;  // 淡蜜桃 - 背景高亮、选中态
+$primary-dark: #FF9AA2;     // 深蜜桃 - 按钮active
+
+// ----------------------------------------
+// 辅助色
+// ----------------------------------------
+$cream: #FFF5E6;            // 奶油米 - 页面背景
+$cream-light: #FFFDF9;      // 米白色 - 卡片背景
+$mint: #B8E5D8;             // 薄荷绿 - 成功状态、完成标记
+$lavender: #E8DFF5;         // 薰衣草 - 分类标签、徽章背景
+$coral: #FF7F6B;            // 珊瑚橙 - 警告、通知、未完成
+
+// ----------------------------------------
+// 文字颜色
+// ----------------------------------------
+$text-primary: #5D4037;     // 巧克力棕 - 主文字
+$text-secondary: #8D6E63;   // 可可棕 - 次要文字
+$text-light: #BCAAA4;       // 奶茶棕 - 占位符、禁用态
+$text-white: #FFFFFF;       // 纯白 - 按钮文字(深色背景)
+
+// ----------------------------------------
+// 语义色
+// ----------------------------------------
+$success: #7CB342;          // 成功
+$warning: #FFA726;          // 警告
+$error: #EF5350;            // 错误
+$info: #42A5F5;             // 信息
+
+// ----------------------------------------
+// 数据可视化配色
+// ----------------------------------------
+$chart-coral: #fd7f6f;      // 珊瑚红 - 餐饮、外食
+$chart-sky: #7eb0d5;        // 天空蓝 - 交通、通信
+$chart-lime: #b2e061;       // 青柠绿 - 收入、存款
+$chart-purple: #bd7ebe;     // 薰衣草 - 购物、娱乐
+$chart-apricot: #ffb55a;    // 杏橙色 - 住房、水电
+$chart-lemon: #ffee65;      // 柠檬黄 - 其他
+
+$chart-colors: (
+  $chart-coral,
+  $chart-sky,
+  $chart-lime,
+  $chart-purple,
+  $chart-apricot,
+  $chart-lemon
+);
+
+// ----------------------------------------
+// 深色模式
+// ----------------------------------------
+$dark-bg: #1E1E1E;          // 页面背景
+$dark-card: #2D2D2D;        // 卡片背景
+$dark-input: #3D3D3D;       // 输入框背景
+$dark-text: #F5F5F5;        // 主文字
+$dark-text-secondary: #BDBDBD;  // 次要
+$dark-text-disabled: #757575;   // 禁用
+
+// ----------------------------------------
+// 字体系统
+// ----------------------------------------
+$font-cn-title: 'Zen Maru Gothic', 'Noto Sans SC', sans-serif;
+$font-cn-body: 'Zen Maru Gothic', 'Noto Sans SC', sans-serif;
+$font-en: 'Nunito', 'SF Pro Rounded', sans-serif;
+
+// 字号规范
+$font-size-display: 32px;   // 大数字展示(钻石、金额)
+$font-size-h1: 24px;        // 页面标题
+$font-size-h2: 20px;        // 卡片标题
+$font-size-h3: 18px;        // 区块标题
+$font-size-body: 16px;      // 正文
+$font-size-small: 14px;     // 辅助文字
+$font-size-caption: 12px;   // 标签、时间戳
+
+// 行高
+$line-height-display: 40px;
+$line-height-h1: 32px;
+$line-height-h2: 28px;
+$line-height-h3: 26px;
+$line-height-body: 24px;
+$line-height-small: 20px;
+$line-height-caption: 16px;
+
+// 字重
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// ----------------------------------------
+// 间距系统 (8px基准)
+// ----------------------------------------
+$spacing-xs: 4px;           // 紧凑间距
+$spacing-sm: 8px;           // 小间距
+$spacing-md: 12px;          // 标准间距
+$spacing-lg: 16px;          // 中等间距
+$spacing-xl: 24px;          // 大间距
+$spacing-2xl: 32px;         // 区块间距
+$spacing-3xl: 48px;         // 页面边距
+
+// ----------------------------------------
+// 圆角规范
+// ----------------------------------------
+$radius-xs: 4px;            // 标签、徽章
+$radius-sm: 8px;            // 按钮、输入框
+$radius-md: 12px;           // 按钮hover态
+$radius-lg: 16px;           // 卡片
+$radius-xl: 24px;           // 大卡片、弹窗
+$radius-pill: 50px;         // 胶囊形状
+$radius-circle: 50%;        // 圆形: 头像、图标背景
+
+// ----------------------------------------
+// 阴影规范
+// ----------------------------------------
+$shadow-sm: 0 1px 2px rgba(93, 64, 55, 0.05);
+$shadow-md: 0 4px 8px rgba(93, 64, 55, 0.08);
+$shadow-lg: 0 8px 24px rgba(93, 64, 55, 0.12);
+$shadow-xl: 0 16px 48px rgba(93, 64, 55, 0.16);
+
+// 深色模式阴影
+$shadow-dark-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+$shadow-dark-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+$shadow-dark-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+// ----------------------------------------
+// 过渡动画
+// ----------------------------------------
+$transition-fast: 200ms;
+$transition-normal: 300ms;
+$transition-slow: 400ms;
+
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+// ----------------------------------------
+// 响应式断点
+// ----------------------------------------
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1280px;
+
+// ----------------------------------------
+// Z-index 层级
+// ----------------------------------------
+$z-index-dropdown: 100;
+$z-index-sticky: 200;
+$z-index-fixed: 300;
+$z-index-modal-backdrop: 400;
+$z-index-modal: 500;
+$z-index-tooltip: 600;
+$z-index-toast: 700;
+
+// ----------------------------------------
+// 组件尺寸
+// ----------------------------------------
+$header-height: 64px;
+$sidebar-width: 240px;
+$sidebar-collapsed-width: 72px;
+$bottom-tab-height: 64px;
+$input-height: 48px;
+$button-height: 48px;
+$icon-size-sm: 20px;
+$icon-size-md: 24px;
+$icon-size-lg: 32px;
